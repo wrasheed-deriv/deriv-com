@@ -3,7 +3,7 @@ name: Release Staging
 on:
     push:
         branches:
-            - master
+            - waqas/image_validation
         paths-ignore:
             - '**.md'
 
