@@ -19,31 +19,31 @@ env:
     GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
-    lint:
-        timeout-minutes: 10
-        runs-on: ubuntu-latest
-        environment: staging
+#     lint:
+#         timeout-minutes: 10
+#         runs-on: ubuntu-latest
+#         environment: staging
 
-        steps:
-            - name: Checkout 🛎️
-              uses: actions/checkout@v2.3.1
+#         steps:
+#             - name: Checkout 🛎️
+#               uses: actions/checkout@v2.3.1
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Cache dependencies
-              id: cache
-              uses: actions/cache@v2
-              env:
-                  cache-name: cache-node-modules
-              with:
-                  path: ./node_modules
-                  key: modules-${{ hashFiles('package-lock.json') }}
-            - name: Install Node.js dependencies
-              run: |
-                  npm ci
-                  npm test
+#             - name: Set up Node.js
+#               uses: actions/setup-node@v1
+#               with:
+#                   node-version: 14
+#             - name: Cache dependencies
+#               id: cache
+#               uses: actions/cache@v2
+#               env:
+#                   cache-name: cache-node-modules
+#               with:
+#                   path: ./node_modules
+#                   key: modules-${{ hashFiles('package-lock.json') }}
+#             - name: Install Node.js dependencies
+#               run: |
+#                   npm ci
+#                   npm test
 
     release-staging:
 #         needs: lint
