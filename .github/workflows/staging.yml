@@ -91,7 +91,7 @@ jobs:
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
             
-            - name: Testing nginx image 🐳
+            - name: Testing nginx image
               run: |
                 docker images
                 docker ps
